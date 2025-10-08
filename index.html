@@ -1,11 +1,295 @@
 <!doctype html>
-<html lang="zh-Hans">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>我的 GitHub Pages</title>
+  <title>Chuanlin Zhang · Homepage</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+
+  <style>
+    :root{
+      --bg: #fbfbfd;
+      --card: #ffffff;
+      --text: #0f1724;
+      --muted: #556070;
+      --accent: #2563eb;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 6px 20px rgba(17,24,39,0.08);
+      --radius: 12px;
+      --max-width: 980px;
+    }
+    [data-theme="dark"]{
+      --bg: #0b1220;
+      --card: #061226;
+      --text: #e6eef8;
+      --muted: #9fb0cc;
+      --accent: #60a5fa;
+      --glass: rgba(10,18,30,0.6);
+      --shadow: 0 6px 30px rgba(2,6,23,0.6);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans CJK SC", "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg), #f7f9fc);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    header{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:22px;
+    }
+
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      width: 100%;
+      justify-content: center;
+    }
+    .avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    flex: 0 0 68px;
+    }
+
+    .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    }
+    .name{
+      display:flex;flex-direction:column;
+    }
+    .name .title{font-size:18px;font-weight:700}
+    .name .sub{font-size:13px;color:var(--muted);margin-top:2px}
+
+    .actions{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .btn{
+      background:var(--card);border:1px solid rgba(0,0,0,0.04);
+      padding:8px 12px;border-radius:10px;cursor:pointer;
+      box-shadow:var(--shadow);font-weight:600;font-size:14px;
+    }
+    .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06)}
+    .btn.primary{background:linear-gradient(90deg,var(--accent), #7c3aed);color:white;border:0}
+
+    main{
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      align-items: stretch;
+    }
+    @media (max-width:900px){
+      main{grid-template-columns: 1fr; padding-bottom:40px}
+      .avatar{width:60px;height:60px}
+    }
+
+    /* Left card */
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .about p{margin:8px 0;color:var(--muted)}
+    .meta-list{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+    .meta-item{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
+    .meta-item strong{color:var(--text);min-width:76px;display:inline-block}
+
+    /* Right content */
+    .section{margin-bottom:18px}
+    .section h2{margin:0 0 10px 0;font-size:18px}
+    .research .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--text);border:1px solid rgba(0,0,0,0.04)}
+
+    .pub{
+      border-left:3px solid rgba(0,0,0,0.04);padding:10px 14px;margin-bottom:10px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    }
+    .pub h3{margin:0;font-size:15px}
+    .pub .meta{font-size:13px;color:var(--muted);margin-top:6px}
+
+    footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* small helpers */
+    .row{display:flex;gap:4px;align-items:center}
+    a.link{color:var(--accent);text-decoration:none;font-weight:600}
+    .link{font-size:13px;padding:2px 8px;}
+    .muted{color:var(--muted)}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,0.04),transparent);margin:12px 0;border-radius:2px}
+
+    /* theme toggle */
+    .theme-toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:var(--glass);border:1px solid rgba(0,0,0,0.04);cursor:pointer}
+  </style>
 </head>
 <body>
-  <!-- 页面内容留空或在此处添加你想要显示的内容 -->
+  <div class="container" id="page">
+    <header>
+      <div class="brand" role="banner" style="display: flex; align-items: center; justify-content: flex-start;">
+        <div class="avatar" aria-hidden="true">
+          <img src="images/whoami.jpg" alt="whoami">
+        </div>
+        <div class="name">
+          <div class="title">Chuanlin Zhang</div>
+          <div class="sub">Vision Department Manager, ROKAE Robotics.</div>
+        </div>
+      </div>
+
+      <!-- <div class="actions" role="navigation" aria-label="site actions">
+        <a class="btn primary" href="cv/chinese.pdf" download>Download CV</a>
+      </div> -->
+    </header>
+
+    <main>
+      <!-- Left -->
+      <aside class="card" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
+        <div class="about">
+          <p>
+            I am currently the Vision Department Manager at ROKAE Robotics, where I lead research and development in machine learning and computer vision for intelligent robotic systems. I obtained my Master's degree at Nanjing University of Aeronautics and Astronautics, China. Before this, I obtained my  Bachelor's degree from China University of Petroleum(Beijing), China. My research interests include 3D reconstruction, structured light imaging systems, image understanding, multimodal learning, and 6D pose estimation, with a focus on advancing intelligent perception systems for robotic applications. I'm always open to academic collaborations, feel free to reach out.
+          </p>
+          <div class="meta-list" aria-hidden="false">
+            <div class="meta-item"><strong>Email</strong><span>zhangchuanlin@rokae.com, chuanlin.zhang97@gmail.com</span></div>
+            <div class="meta-item"><strong>Address</strong><span>Beijing, China</span></div>
+            <div class="meta-item"><strong>Position</strong><span>Vision Department Manager, ROKAE Robotics.</span></div>
+            
+            <div class="row">
+              <p><b>Social</b></p>
+              <a class="link" href="https://github.com/L1nn97" target="_blank">GitHub</a>
+              <a class="link" href="https://www.linkedin.com/in/chuanlin-zhang-701523371" target="_blank">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+<!-- Right -->
+<section>
+  <article class="card section" id="experience" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Professional Experiences</h2>
+    <div class="experience-list">
+      <!-- Current Role -->
+    <div class="experience-item" style="margin-bottom:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <strong style="display:inline-block; width:400px;">Vision Department Manager</strong>
+          <span>ROKAE Robotics, Beijing, China</span>
+        </div>
+        <em style="margin-left:8px; white-space:nowrap;">2024.08-Present</em>
+      </div>
+      <ul style="margin-top:4px; padding-left:20px; list-style-type:disc;">
+        <li>Lead the vision department, overseeing research and development in machine learning and computer vision for robotic perception systems, managing a team of 8 engineers and researchers.</li>
+        <li>Manage projects in 3D reconstruction, 6D pose estimation, and robotics welding.</li>
+        <li>Drive the development of intelligent perception systems for real-world robotic applications.</li>
+      </ul>
+    </div>
+
+    <div class="experience-item" style="margin-bottom:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <strong style="display:inline-block; width:400px;">Computer Vision Algorithm Engineer</strong>
+          <span>Transfer Technology, Beijing, China</span>
+        </div>
+        <em style="margin-left:8px; white-space:nowrap;">2022.04-2024.08</em>
+      </div>
+      <ul style="margin-top:4px; padding-left:20px; list-style-type:disc;">
+        <li>Developed and optimized structured light camera systems and imaging algorithms, improving reconstruction quality and accelerating processing pipelines (~200ms) using CUDA and OpenCL.</li>
+        <li>Participated in camera hardware-software integration and production workflows, including SDK development (C#, Python, C++) and deployment on site.</li>
+        <li>Designed and implemented 3D point cloud processing and matching algorithms for robotic grasping, enhancing performance in complex industrial scenarios (stacked materials, compressors, large planes).</li>
+        <li>Integrated and optimized common point cloud processing techniques, including normal estimation, segmentation, clustering, and filtering.</li>
+        <li>Maintained and developed the company’s robot grasping algorithm library, supporting industrial scene grasp sequencing, path planning, and collision detection.</li>
+      </ul>
+    </div>
+
+
+    </div>
+
+    <div style="margin-top:12px;color:var(--muted)">
+      <strong>Summary:</strong> I focus on leading and developing cutting-edge vision systems for robotics, combining research, team management, and real-world deployment.
+    </div>
+  </article>
+</section>
+
+
+        <footer>
+          © <span id="year"></span> Chuanlin Zhang · This homepage is hosted by GitHub Pages
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Fill year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme persistence (localStorage)
+    (function(){
+      const root = document.documentElement;
+      const toggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const saved = localStorage.getIte <article class="card section" id="publications" aria-labelledby="pub-heading">
+          <h2 id="pub-heading">Selected Publications & Preprints</h2>
+
+          <!-- Example entry: Replace with your real publications -->
+          <div class="pub" role="article">
+            <h3>2024 — A Novel Approach for Efficient Visual Representation Learning</h3>
+            <div class="meta">Conference/Journal · Authors: Zhang, C.; Li, X.; Wang, Y. · <a class="link" href="#" target="_blank" rel="noopener">Paper Link</a></div>
+            <p class="muted" style="margin-top:8px">Abstract: This paper proposes a new lightweight representation learning method, achieving significant improvements on multiple benchmarks.</p>
+          </div>
+
+          <div class="pub" role="article">
+            <h3>2023 — Cross-modal Conm('site-theme');
+
+      function applyTheme(mode){
+        if(mode === 'dark'){
+          root.setAttribute('data-theme','dark');
+          themeIcon.textContent = '☀️';
+        } else {
+          root.removeAttribute('data-theme');
+          themeIcon.textContent = '🌙';
+        }
+        localStorage.setItem('site-theme', mode);
+      }
+
+      // Initialize (default light)
+      applyTheme(saved === 'dark' ? 'dark' : 'light');
+
+      function toggleTheme(){
+        const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        applyTheme(cur === 'dark' ? 'light' : 'dark');
+      }
+
+      if(toggle) {
+        toggle.addEventListener('click', toggleTheme);
+        toggle.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') toggleTheme(); });
+      }
+    })();
+  </script>
 </body>
 </html>
